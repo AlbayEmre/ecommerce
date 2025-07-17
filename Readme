@@ -1,142 +1,88 @@
-🛒 E-Commerce RESTful API
-E-Commerce, Node.js (Express.js) ile geliştirilmiş, JWT tabanlı kullanıcı kimlik doğrulama, kategori ve ürün yönetimi, yorum sistemi ve dosya yükleme gibi işlevler içeren, modüler yapıda tasarlanmış bir RESTful API projesidir. Sequelize ORM ile MySQL veritabanı entegrasyonu sağlar. Swagger arayüzü ile tüm uç noktalar interaktif olarak test edilebilir.
+# 🛒 Ecommerce Backend API
 
-🧰 Teknolojiler
-Node.js & Express.js
+Bu proje, bir e-ticaret platformu için geliştirilmiş Node.js tabanlı RESTful bir backend API'dir. Kullanıcı yönetimi, ürünler, kategoriler, yorumlar ve kimlik doğrulama gibi özellikler içerir.
 
-Sequelize ORM + MySQL
+## 🚀 Özellikler
 
-JWT ile kimlik doğrulama
+- JWT ile kullanıcı kimlik doğrulama
+- Admin yetkilendirmesi
+- Ürün, kategori ve yorum CRUD işlemleri
+- Sequelize ORM ile MySQL veritabanı bağlantısı
+- Swagger ile API dokümantasyonu
+- Gelişmiş hata yönetimi ve logger sistemi
 
-Joi ile veri doğrulama
+## 🧱 Proje Yapısı
 
-Multer ile dosya yükleme
-
-Swagger ile API dökümantasyonu
-
-dotenv, bcryptjs, cookie-parser, http-status
-
-🚀 Özellikler
-✅ Kullanıcı kayıt & giriş (JWT destekli)
-
-🛂 Admin/kullanıcı rol kontrolü
-
-📦 Ürün & kategori CRUD işlemleri
-
-💬 Yorum ekleme/silme
-
-📁 Görsel yükleme (public/uploads)
-
-🧾 Swagger ile görsel API test ortamı
-
-📐 Katmanlı yapı (Controller, Service, Repository)
-
-📦 Kurulum
-bash
-Kopyala
-Düzenle
-# 1. Projeyi klonla
-git clone <proje-linki>
-cd ecommerce
-
-# 2. Bağımlılıkları yükle
-npm install
-
-# 3. Ortam değişkenlerini ayarla
-# .env dosyası oluştur ve şu bilgileri ekle:
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=ecommerce
-JWT_SECRET=your_jwt_secret
-
-# 4. Uygulamayı başlat
-npm start
-📄 Swagger API
-Tüm API uç noktalarını Swagger arayüzü ile test edebilirsin:
-
-bash
-Kopyala
-Düzenle
-http://localhost:3000/api-docs
-🗂️ Proje Yapısı
-bash
-Kopyala
-Düzenle
+```
 ecommerce/
-├── app.js                     # Ana uygulama dosyası
-├── startUp.js                 # Middleware ve router başlangıcı
-├── swagger.json               # Swagger API tanımı
-├── .env                       # Ortam değişkenleri
-│
+├── app.js
+├── startUp.js
+├── .env
+├── package.json
+├── swagger.json
 ├── Config/
-│   └── index.js               # Yapılandırmalar
-│
 ├── Controller/
-│   ├── auth.controller.js
-│   ├── categories.controller.js
-│   ├── comment.controller.js
-│   ├── product.controller.js
-│   └── user.controller.js
-│
 ├── db/
-│   └── connection.js          # Sequelize bağlantısı
-│
 ├── log/
-│   ├── logger.js
-│   └── Model/
-│       └── log.model.js
-│
 ├── Middlewares/
-│   ├── auth.js                # JWT doğrulama
-│   ├── isAdmin.js             # Admin kontrolü
-│   └── error.js               # Global hata yönetimi
-│
-├── models/
-│   ├── User.model.js
-│   ├── Product.model.js
-│   ├── Category.model.js
-│   ├── Comment.model.js
-│   ├── token.model.js
-│   ├── index.js
-│   └── associations/
-│       └── index.js
-│
-├── public/
-│   └── uploads/               # Ürün görselleri
-│
-├── repositories/
-│   ├── auth.repositories.js
-│   ├── category.repositories.js
-│   ├── comment.repository.js
-│   ├── product.repositories.js
-│   ├── token.repositoriy.js
-│   └── user.repository.js
-│
-├── Routers/
-│   ├── auth.routes.js
-│   ├── category.routes.js
-│   ├── comment.routes.js
-│   ├── product.routes.js
-│   └── user.routes.js
-│
-└── Services/
-    ├── auth.service.js
-    ├── category.service.js
-    ├── comment.service.js
-    ├── product.service.js
-    ├── token.service.js
-    └── user.service.js
-🔐 Kullanıcı Rolleri
-👤 Kullanıcı: Kayıt olabilir, giriş yapabilir, ürünleri ve yorumları görüntüleyebilir.
+└── models/
+```
 
-🛡️ Admin: Kategori, ürün, kullanıcı ve yorumlar üzerinde tam yetkilidir.
+## 🔧 Kurulum
 
-📝 Notlar
-Swagger JSON dosyası üzerinden tüm endpoint’ler belgelidir.
+1. Bu depoyu klonlayın veya ZIP olarak indirin:
+   ```bash
+   git clone <repo-url>
+   cd ecommerce
+   ```
 
-public/uploads klasörüne görsel yüklenebilir.
+2. Gerekli bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
 
-Hatalar middlewares/error.js üzerinden merkezi olarak yönetilir.
+3. `.env` dosyasını oluşturun ve aşağıdaki ortam değişkenlerini doldurun:
 
-Her kaynak için controller → service → repository yapısı izlenir.
+   ```env
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASSWORD=your_password
+   DB_NAME=ecommerce
+   JWT_SECRET=your_jwt_secret
+   ```
+
+4. Sequelize ile veritabanı tablolarını oluşturun (otomatik sync kullanılıyorsa bu adım otomatik yapılır).
+
+## ▶️ Çalıştırma
+
+```bash
+npm start
+```
+
+API varsayılan olarak `http://localhost:3000` adresinde çalışır.
+
+## 📘 API Dokümantasyonu
+
+Swagger arayüzü üzerinden API'yi test etmek için aşağıdaki URL'yi ziyaret edin:
+
+```
+http://localhost:3000/api-docs
+```
+
+## 📦 Bağımlılıklar
+
+- express
+- bcryptjs
+- cookie-parser
+- dotenv
+- joi
+- jsonwebtoken
+- mysql2
+- sequelize
+- swagger-jsdoc
+- swagger-ui-express
+- http-status
+
+## 👨‍💻 Geliştirici
+
+Şu anda `package.json` içinde geliştirici bilgisi bulunmuyor. Lütfen `package.json` dosyasına `author` alanını eklemeyi unutmayın.
