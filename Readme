@@ -1,49 +1,142 @@
-# 🛒 OldEcommerce Microservices API
+🛒 E-Commerce RESTful API
+E-Commerce, Node.js (Express.js) ile geliştirilmiş, JWT tabanlı kullanıcı kimlik doğrulama, kategori ve ürün yönetimi, yorum sistemi ve dosya yükleme gibi işlevler içeren, modüler yapıda tasarlanmış bir RESTful API projesidir. Sequelize ORM ile MySQL veritabanı entegrasyonu sağlar. Swagger arayüzü ile tüm uç noktalar interaktif olarak test edilebilir.
 
-A modular, scalable and SOLID-compliant backend for an e-commerce platform, built with Node.js, Express, Sequelize (MySQL), JWT authentication, Joi validation and Swagger/OpenAPI documentation.
+🧰 Teknolojiler
+Node.js & Express.js
 
----
+Sequelize ORM + MySQL
 
-## 🚀 Özellikler
+JWT ile kimlik doğrulama
 
-- 🔐 **JWT Authentication**  
-  Register, login, logout, token refresh, role-based access (admin toggle).
+Joi ile veri doğrulama
 
-- 🛍️ **Product Management**  
-  CRUD endpoints for products, including associated comments.
+Multer ile dosya yükleme
 
-- 🗂️ **Category Management**  
-  CRUD endpoints for categories.
+Swagger ile API dökümantasyonu
 
-- 💬 **Comment System**  
-  Add, retrieve, update and delete comments on products.
+dotenv, bcryptjs, cookie-parser, http-status
 
-- 📦 **Microservice-like Modules**  
-  Layered architecture: Controllers → Services → Repositories → Models.
+🚀 Özellikler
+✅ Kullanıcı kayıt & giriş (JWT destekli)
 
-- 📜 **Validation & Error Handling**  
-  Joi input validation, centralized error middleware, custom `ApiError`.
+🛂 Admin/kullanıcı rol kontrolü
 
-- 📑 **Swagger / OpenAPI**  
-  Self-documenting API via `swagger.json` and Swagger UI.
+📦 Ürün & kategori CRUD işlemleri
 
----
+💬 Yorum ekleme/silme
 
-## 📁 Proje Yapısı
+📁 Görsel yükleme (public/uploads)
 
-```
+🧾 Swagger ile görsel API test ortamı
+
+📐 Katmanlı yapı (Controller, Service, Repository)
+
+📦 Kurulum
+bash
+Kopyala
+Düzenle
+# 1. Projeyi klonla
+git clone <proje-linki>
+cd ecommerce
+
+# 2. Bağımlılıkları yükle
+npm install
+
+# 3. Ortam değişkenlerini ayarla
+# .env dosyası oluştur ve şu bilgileri ekle:
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=ecommerce
+JWT_SECRET=your_jwt_secret
+
+# 4. Uygulamayı başlat
+npm start
+📄 Swagger API
+Tüm API uç noktalarını Swagger arayüzü ile test edebilirsin:
+
+bash
+Kopyala
+Düzenle
+http://localhost:3000/api-docs
+🗂️ Proje Yapısı
+bash
+Kopyala
+Düzenle
 ecommerce/
-├── Config/ # .env yükleme, JWT & DB ayarları
-├── Controller/ # HTTP isteklerini yöneten katman
-├── Middlewares/ # ErrorHandler, AuthGuard, Validator
-├── Models/ # Sequelize modelleri (User, Product, Comment, Category)
-├── Repositories/ # DB sorguları (generic CRUD)
-├── Routers/ # Express route tanımları
-├── Services/ # Business logic / Use-cases
-├── Validation/ # Joi şemaları
-├── Utils/ # ApiError, logger, helper fonksiyonlar
-├── swagger.json # OpenAPI dokümantasyonu
-├── app.js # Express app konfigürasyonu
-├── startUp.js # Server başlatma
-└── .env # Ortam değişkenleri
-```
+├── app.js                     # Ana uygulama dosyası
+├── startUp.js                 # Middleware ve router başlangıcı
+├── swagger.json               # Swagger API tanımı
+├── .env                       # Ortam değişkenleri
+│
+├── Config/
+│   └── index.js               # Yapılandırmalar
+│
+├── Controller/
+│   ├── auth.controller.js
+│   ├── categories.controller.js
+│   ├── comment.controller.js
+│   ├── product.controller.js
+│   └── user.controller.js
+│
+├── db/
+│   └── connection.js          # Sequelize bağlantısı
+│
+├── log/
+│   ├── logger.js
+│   └── Model/
+│       └── log.model.js
+│
+├── Middlewares/
+│   ├── auth.js                # JWT doğrulama
+│   ├── isAdmin.js             # Admin kontrolü
+│   └── error.js               # Global hata yönetimi
+│
+├── models/
+│   ├── User.model.js
+│   ├── Product.model.js
+│   ├── Category.model.js
+│   ├── Comment.model.js
+│   ├── token.model.js
+│   ├── index.js
+│   └── associations/
+│       └── index.js
+│
+├── public/
+│   └── uploads/               # Ürün görselleri
+│
+├── repositories/
+│   ├── auth.repositories.js
+│   ├── category.repositories.js
+│   ├── comment.repository.js
+│   ├── product.repositories.js
+│   ├── token.repositoriy.js
+│   └── user.repository.js
+│
+├── Routers/
+│   ├── auth.routes.js
+│   ├── category.routes.js
+│   ├── comment.routes.js
+│   ├── product.routes.js
+│   └── user.routes.js
+│
+└── Services/
+    ├── auth.service.js
+    ├── category.service.js
+    ├── comment.service.js
+    ├── product.service.js
+    ├── token.service.js
+    └── user.service.js
+🔐 Kullanıcı Rolleri
+👤 Kullanıcı: Kayıt olabilir, giriş yapabilir, ürünleri ve yorumları görüntüleyebilir.
+
+🛡️ Admin: Kategori, ürün, kullanıcı ve yorumlar üzerinde tam yetkilidir.
+
+📝 Notlar
+Swagger JSON dosyası üzerinden tüm endpoint’ler belgelidir.
+
+public/uploads klasörüne görsel yüklenebilir.
+
+Hatalar middlewares/error.js üzerinden merkezi olarak yönetilir.
+
+Her kaynak için controller → service → repository yapısı izlenir.
