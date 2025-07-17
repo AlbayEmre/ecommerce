@@ -31,7 +31,7 @@ A modular, scalable and SOLID-compliant backend for an e-commerce platform, buil
 
 ## 📁 Proje Yapısı
 
-'''
+```
 ecommerce/
 ├── Config/ # .env yükleme, JWT & DB ayarları
 ├── Controller/ # HTTP isteklerini yöneten katman
@@ -46,4 +46,4 @@ ecommerce/
 ├── app.js # Express app konfigürasyonu
 ├── startUp.js # Server başlatma
 └── .env # Ortam değişkenleri
-'''
+```
