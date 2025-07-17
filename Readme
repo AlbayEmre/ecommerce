@@ -1,5 +1,49 @@
-🛒 E-Commerce RESTful API
-✨ Açıklama
-Bu proje, modern bir e-ticaret uygulamasının backend API katmanını temsil eder. Node.js ve Express.js üzerine kurulmuş, JWT ile kimlik doğrulama, Sequelize ORM ile veritabanı yönetimi, Swagger ile API dökümantasyonu, SOLID prensiplerine uygun katmanlı mimari kullanılmıştır.
+# 🛒 OldEcommerce Microservices API
 
-Amaç: Gerçek dünyadaki e-ticaret sistemlerine benzer, ölçeklenebilir, sürdürülebilir ve test edilebilir bir yapı kurmak.
+A modular, scalable and SOLID-compliant backend for an e-commerce platform, built with Node.js, Express, Sequelize (MySQL), JWT authentication, Joi validation and Swagger/OpenAPI documentation.
+
+---
+
+## 🚀 Özellikler
+
+- 🔐 **JWT Authentication**  
+  Register, login, logout, token refresh, role-based access (admin toggle).
+
+- 🛍️ **Product Management**  
+  CRUD endpoints for products, including associated comments.
+
+- 🗂️ **Category Management**  
+  CRUD endpoints for categories.
+
+- 💬 **Comment System**  
+  Add, retrieve, update and delete comments on products.
+
+- 📦 **Microservice-like Modules**  
+  Layered architecture: Controllers → Services → Repositories → Models.
+
+- 📜 **Validation & Error Handling**  
+  Joi input validation, centralized error middleware, custom `ApiError`.
+
+- 📑 **Swagger / OpenAPI**  
+  Self-documenting API via `swagger.json` and Swagger UI.
+
+---
+
+## 📁 Proje Yapısı
+
+'''
+ecommerce/
+├── Config/ # .env yükleme, JWT & DB ayarları
+├── Controller/ # HTTP isteklerini yöneten katman
+├── Middlewares/ # ErrorHandler, AuthGuard, Validator
+├── Models/ # Sequelize modelleri (User, Product, Comment, Category)
+├── Repositories/ # DB sorguları (generic CRUD)
+├── Routers/ # Express route tanımları
+├── Services/ # Business logic / Use-cases
+├── Validation/ # Joi şemaları
+├── Utils/ # ApiError, logger, helper fonksiyonlar
+├── swagger.json # OpenAPI dokümantasyonu
+├── app.js # Express app konfigürasyonu
+├── startUp.js # Server başlatma
+└── .env # Ortam değişkenleri
+'''
