@@ -1,0 +1,5 @@
+🛒 E-Commerce RESTful API
+✨ Açıklama
+Bu proje, modern bir e-ticaret uygulamasının backend API katmanını temsil eder. Node.js ve Express.js üzerine kurulmuş, JWT ile kimlik doğrulama, Sequelize ORM ile veritabanı yönetimi, Swagger ile API dökümantasyonu, SOLID prensiplerine uygun katmanlı mimari kullanılmıştır.
+
+Amaç: Gerçek dünyadaki e-ticaret sistemlerine benzer, ölçeklenebilir, sürdürülebilir ve test edilebilir bir yapı kurmak.
