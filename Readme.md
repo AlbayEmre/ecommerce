@@ -83,6 +83,4 @@ http://localhost:3000/api-docs
 - swagger-ui-express
 - http-status
 
-## 👨‍💻 Geliştirici
-
-Şu anda `package.json` içinde geliştirici bilgisi bulunmuyor. Lütfen `package.json` dosyasına `author` alanını eklemeyi unutmayın.
+ .....
