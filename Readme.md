@@ -1,6 +1,4 @@
-readme:
-  filename: "README.md"
-  content: |
+
     # 🛒 E-Commerce Backend API
 
     Bu proje, Node.js + Express kullanılarak geliştirilmiş, MySQL veritabanı ile çalışan bir e-ticaret platformu için hazırlanmış RESTful API altyapısıdır. Kullanıcı kimlik doğrulama, ürün/kategori/yorum işlemleri, admin kontrolü ve Swagger tabanlı dökümantasyon içerir.
