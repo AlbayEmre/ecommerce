@@ -1,86 +1,127 @@
-# 🛒 Ecommerce Backend API
+readme:
+  filename: "README.md"
+  content: |
+    # 🛒 E-Commerce Backend API
 
-Bu proje, bir e-ticaret platformu için geliştirilmiş Node.js tabanlı RESTful bir backend API'dir. Kullanıcı yönetimi, ürünler, kategoriler, yorumlar ve kimlik doğrulama gibi özellikler içerir.
+    Bu proje, Node.js + Express kullanılarak geliştirilmiş, MySQL veritabanı ile çalışan bir e-ticaret platformu için hazırlanmış RESTful API altyapısıdır. Kullanıcı kimlik doğrulama, ürün/kategori/yorum işlemleri, admin kontrolü ve Swagger tabanlı dökümantasyon içerir.
 
-## 🚀 Özellikler
+    ---
 
-- JWT ile kullanıcı kimlik doğrulama
-- Admin yetkilendirmesi
-- Ürün, kategori ve yorum CRUD işlemleri
-- Sequelize ORM ile MySQL veritabanı bağlantısı
-- Swagger ile API dokümantasyonu
-- Gelişmiş hata yönetimi ve logger sistemi
+    ## 🚀 Özellikler
 
-## 🧱 Proje Yapısı
+    - JWT ile kullanıcı kimlik doğrulama
+    - Rol tabanlı erişim kontrolü (Admin/Kullanıcı)
+    - Ürün, kategori ve yorum işlemleri (CRUD)
+    - Sequelize ORM ile MySQL bağlantısı
+    - Swagger UI ile detaylı API dökümantasyonu
+    - Joi ile input doğrulama
+    - Winston loglama sistemi
+    - Modüler dosya yapısı ile sürdürülebilir geliştirme
 
-```
-ecommerce/
-├── app.js
-├── startUp.js
-├── .env
-├── package.json
-├── swagger.json
-├── Config/
-├── Controller/
-├── db/
-├── log/
-├── Middlewares/
-└── models/
-```
+    ---
 
-## 🔧 Kurulum
+    ## ⚙️ Kurulum
 
-1. Bu depoyu klonlayın veya ZIP olarak indirin:
-   ```bash
-   git clone <repo-url>
-   cd ecommerce
-   ```
+    1. Depoyu klonlayın:
+       ```bash
+       git clone <repo-url>
+       cd ecommerce-backend
+       ```
 
-2. Gerekli bağımlılıkları yükleyin:
-   ```bash
-   npm install
-   ```
+    2. Bağımlılıkları yükleyin:
+       ```bash
+       npm install
+       ```
 
-3. `.env` dosyasını oluşturun ve aşağıdaki ortam değişkenlerini doldurun:
+    3. `.env` dosyasını oluşturun:
+       ```env
+       PORT=3000
+       DB_HOST=localhost
+       DB_USER=root
+       DB_PASSWORD=your_password
+       DB_NAME=ecommerce
+       JWT_SECRET=your_jwt_secret
+       ```
 
-   ```env
-   DB_HOST=localhost
-   DB_USER=root
-   DB_PASSWORD=your_password
-   DB_NAME=ecommerce
-   JWT_SECRET=your_jwt_secret
-   ```
+    4. Veritabanını hazırlayın:
+       ```bash
+       npx sequelize-cli db:migrate
+       ```
 
-4. Sequelize ile veritabanı tablolarını oluşturun (otomatik sync kullanılıyorsa bu adım otomatik yapılır).
+    5. Uygulamayı başlatın:
+       ```bash
+       npm start
+       ```
 
-## ▶️ Çalıştırma
+    ---
 
-```bash
-npm start
-```
+    ## 📂 Proje Yapısı
 
-API varsayılan olarak `http://localhost:3000` adresinde çalışır.
+    ```
+    ecommerce-backend/
+    ├── app.js
+    ├── startUp.js
+    ├── .env
+    ├── package.json
+    ├── package-lock.json
+    ├── swagger.json
+    ├── Readme.md
+    ├── node_modules/
+    └── src/
+        ├── Config/              # Konfigürasyon ayarları
+        ├── Controller/          # API route handler fonksiyonları
+        ├── Middlewares/         # JWT, error, validation middleware'leri
+        ├── Routers/             # Route tanımları
+        ├── Services/            # İş mantığı katmanı
+        ├── db/                  # Veritabanı bağlantısı
+        ├── log/                 # Logger ayarları ve çıktıları
+        ├── models/              # Sequelize model tanımları
+        ├── public/
+        │   └── uploads/         # Yüklenen dosyalar
+        ├── repositories/        # DB erişim soyutlamaları
+        ├── utils/               # Yardımcı fonksiyonlar
+        └── validation/          # Joi ile input doğrulama şemaları
+    ```
 
-## 📘 API Dokümantasyonu
+    ---
 
-Swagger arayüzü üzerinden API'yi test etmek için aşağıdaki URL'yi ziyaret edin:
+    ## 🔗 Swagger Dokümantasyonu
 
-```
-http://localhost:3000/api-docs
-```
+    Swagger UI arayüzü ile API endpoint'lerini test etmek için:
+    ```
+    http://localhost:3000/api-docs
+    ```
 
-## 📦 Bağımlılıklar
+    ---
 
-- express
-- bcryptjs
-- cookie-parser
-- dotenv
-- joi
-- jsonwebtoken
-- mysql2
-- sequelize
-- swagger-jsdoc
-- swagger-ui-express
-- http-status
+    ## 📦 Ortam Değişkenleri
 
- .....
+    | Değişken      | Açıklama                         |
+    |---------------|----------------------------------|
+    | `PORT`        | Sunucu portu                     |
+    | `DB_HOST`     | MySQL host adresi                |
+    | `DB_USER`     | Veritabanı kullanıcı adı         |
+    | `DB_PASSWORD` | Veritabanı şifresi               |
+    | `DB_NAME`     | Veritabanı adı                   |
+    | `JWT_SECRET`  | JWT için gizli anahtar           |
+
+    ---
+
+    ## 🤝 Katkı Sağlama
+
+    1. Projeyi fork’layın  
+    2. Yeni bir feature branch oluşturun  
+    3. Değişiklikleri commit edin  
+    4. Pull request gönderin
+
+    ---
+
+    ## 📄 Lisans
+
+    Bu proje MIT lisansı ile lisanslanmıştır. Detaylar için `LICENSE` dosyasına göz atabilirsiniz.
+
+    ---
+
+    ## 📬 İletişim
+
+    Geri bildirim, öneri ve katkılar için çekinmeden iletişime geçebilirsiniz.
