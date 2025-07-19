@@ -111,9 +111,6 @@ ecommerce-backend/
 
 ---
 
-## 📄 Lisans
-
-Bu proje MIT lisansı ile lisanslanmıştır. Detaylar için `LICENSE` dosyasına göz atabilirsiniz.
 
 ---
 
