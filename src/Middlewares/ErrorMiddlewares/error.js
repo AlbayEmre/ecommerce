@@ -1,5 +1,5 @@
 const logger = require("../log/logger");
-const ApiError = require("../utils/ApiError");
+const ApiError = require("../../utils/ApiError");
 
 module.exports = async function (err, req, res, next) {
   logger.error(err.message, err);
