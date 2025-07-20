@@ -1,4 +1,4 @@
-const { Comment, Product } = require("../models");
+const { Comment, Product } = require("../Domain");
 const ApiError = require("../utils/ApiError");
 const httpStatus = require("http-status");
 

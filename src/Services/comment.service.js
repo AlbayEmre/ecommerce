@@ -15,7 +15,7 @@ module.exports = {
       text: data.text,
       username: data.username,
       date: new Date(),
-      productId: data.productId,
+      productId: data.productId, //Connect to prduct
     });
 
     return { statusCode: 201, message: "Succsess comment Update" };

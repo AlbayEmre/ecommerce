@@ -1,4 +1,4 @@
-const { Product, Comment } = require("../models");
+const { Product, Comment } = require("../Domain");
 
 module.exports = {
   /**
