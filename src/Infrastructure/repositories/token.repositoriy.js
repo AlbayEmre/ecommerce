@@ -1,4 +1,4 @@
-const { Token } = require("../models");
+const { Token } = require("../../Domain/index");
 
 module.exports = {
   /**

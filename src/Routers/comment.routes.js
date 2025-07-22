@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const commentController = require("../Controller/comment.controller");
-const { protect } = require("../middlewares/auth");
+const { protect } = require("../Middlewares/AuthMiddlewares/auth");
 // @route   POST /api/comments
 // @desc    Create a new comment
 router.post("/Create", protect, commentController.createComment);

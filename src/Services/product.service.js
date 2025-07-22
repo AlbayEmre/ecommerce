@@ -1,5 +1,5 @@
 
-const productRepo = require("../repositories/product.repositories");
+const productRepo = require("../Infrastructure/repositories/product.repositories");
 
 module.exports = {
   /**

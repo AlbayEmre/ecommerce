@@ -1,6 +1,6 @@
 // start.js
 const app = require("./startUp");
-const { sequelize } = require("./src/db/connection");
+const { sequelize } = require("./src/Infrastructure/db/connection");
 
 const hostname = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;

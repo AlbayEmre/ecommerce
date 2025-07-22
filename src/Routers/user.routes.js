@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../Controller/user.controller");
-const { protect } = require("../middlewares/auth");
+const { protect } = require("../Middlewares/AuthMiddlewares/auth");
 
 /**
  * @route   DELETE /api/user/delete/:id

@@ -1,4 +1,4 @@
-const { Product, Comment } = require("../Domain");
+const { Product, Comment } = require("../../Domain/index");
 
 module.exports = {
   /**

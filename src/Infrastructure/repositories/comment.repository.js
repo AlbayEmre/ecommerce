@@ -1,5 +1,5 @@
-const { Comment, Product } = require("../Domain");
-const ApiError = require("../utils/ApiError");
+const { Comment, Product } = require("../../Domain/index");
+const ApiError = require("../../utils/ApiError");
 const httpStatus = require("http-status");
 
 module.exports = {

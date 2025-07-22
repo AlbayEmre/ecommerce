@@ -5,7 +5,7 @@ require("dotenv").config();
 const app = express();
 
 // Veritabanı bağlantısını test et ve senkronize et (models/index.js içinde)
-require("./src/models/index");
+require("./src/Domain/index");
 
 // Middlewares
 app.use(express.json());

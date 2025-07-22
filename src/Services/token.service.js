@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const config = require("../Config/index"); // doğru path ile
-const tokenRepo = require("../repositories/token.repositoriy");
+const config = require("../Infrastructure/Config/index"); // doğru path ile
+const tokenRepo = require("../Infrastructure/repositories/token.repositoriy");
 
 module.exports = {
   /**

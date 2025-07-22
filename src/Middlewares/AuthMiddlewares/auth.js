@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken"); // JWT işlemleri için
-const config = require("../../Config/index"); // JWT secret alınacak
+const config = require("../../Infrastructure/Config/index"); // JWT secret alınacak
 
 // Express middleware: Giriş yapmış kullanıcıyı doğrular
 function protect(req, res, next) {

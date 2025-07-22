@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const ProductController = require("../Controller/product.controller");
-const { protect } = require("../middlewares/auth");
-const isAdmin = require("../middlewares/isAdmin");
+const { protect } = require("../Middlewares/AuthMiddlewares/auth");
+const isAdmin = require("../Middlewares/AuthMiddlewares/isAdmin");
 
 /**
  * @route   GET /api/products/getAll

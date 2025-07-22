@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const tokenService = require("./token.service");
 
 
-const authRepo = require("../repositories/auth.repositories");
+const authRepo = require("../Infrastructure/repositories/auth.repositories");
 module.exports = {
   /**
    * Register a new user

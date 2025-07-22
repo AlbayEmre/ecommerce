@@ -1,4 +1,4 @@
-const categoryRepo = require("../repositories/category.repositories");
+const categoryRepo = require("../Infrastructure/repositories/category.repositories");
 
 module.exports = {
   /**

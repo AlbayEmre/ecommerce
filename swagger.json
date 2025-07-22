@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "E-Commerce API",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "REST endpoints for authentication, user management, categories, products, and comments."
   },
   "servers": [
@@ -27,7 +27,9 @@
             "type": "string"
           }
         },
-        "required": ["message"]
+        "required": [
+          "message"
+        ]
       },
       "ErrorResponse": {
         "allOf": [
@@ -48,149 +50,238 @@
       "User": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "fullName": { "type": "string" },
-          "email": { "type": "string" },
-          "isAdmin": { "type": "boolean" }
+          "id": {
+            "type": "integer"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          }
         }
       },
       "Category": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "name": { "type": "string" }
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
         }
       },
       "Product": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "name": { "type": "string" },
-          "price": { "type": "number" }
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
         }
       },
       "Comment": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer" },
-          "text": { "type": "string" },
-          "username": { "type": "string" },
-          "date": { "type": "string", "format": "date-time" },
-          "productId": { "type": "integer" }
+          "id": {
+            "type": "integer"
+          },
+          "text": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "productId": {
+            "type": "integer"
+          }
         }
       },
       "RegisterResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
-              "accessToken": { "type": "string" },
-              "expiresAt": { "type": "integer" },
-              "user": { "$ref": "#/components/schemas/User" }
+              "accessToken": {
+                "type": "string"
+              },
+              "expiresAt": {
+                "type": "integer"
+              },
+              "user": {
+                "$ref": "#/components/schemas/User"
+              }
             },
-            "required": ["accessToken", "user"]
+            "required": [
+              "accessToken",
+              "user"
+            ]
           }
         ]
       },
       "LoginResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
-              "accessToken": { "type": "string" },
-              "user": { "$ref": "#/components/schemas/User" }
+              "accessToken": {
+                "type": "string"
+              },
+              "user": {
+                "$ref": "#/components/schemas/User"
+              }
             },
-            "required": ["accessToken", "user"]
+            "required": [
+              "accessToken",
+              "user"
+            ]
           }
         ]
       },
       "RefreshTokenResponse": {
         "type": "object",
         "properties": {
-          "accessToken": { "type": "string" }
+          "accessToken": {
+            "type": "string"
+          }
         },
-        "required": ["accessToken"]
+        "required": [
+          "accessToken"
+        ]
       },
       "CategoryListResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
               "categories": {
                 "type": "array",
-                "items": { "$ref": "#/components/schemas/Category" }
+                "items": {
+                  "$ref": "#/components/schemas/Category"
+                }
               }
             },
-            "required": ["categories"]
+            "required": [
+              "categories"
+            ]
           }
         ]
       },
       "CategoryResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
-              "category": { "$ref": "#/components/schemas/Category" }
+              "category": {
+                "$ref": "#/components/schemas/Category"
+              }
             },
-            "required": ["category"]
+            "required": [
+              "category"
+            ]
           }
         ]
       },
       "ProductListResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
               "products": {
                 "type": "array",
-                "items": { "$ref": "#/components/schemas/Product" }
+                "items": {
+                  "$ref": "#/components/schemas/Product"
+                }
               }
             },
-            "required": ["products"]
+            "required": [
+              "products"
+            ]
           }
         ]
       },
       "ProductResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
-              "product": { "$ref": "#/components/schemas/Product" }
+              "product": {
+                "$ref": "#/components/schemas/Product"
+              }
             },
-            "required": ["product"]
+            "required": [
+              "product"
+            ]
           }
         ]
       },
       "CommentListResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
               "comments": {
                 "type": "array",
-                "items": { "$ref": "#/components/schemas/Comment" }
+                "items": {
+                  "$ref": "#/components/schemas/Comment"
+                }
               }
             },
-            "required": ["comments"]
+            "required": [
+              "comments"
+            ]
           }
         ]
       },
       "CommentResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/MessageResponse" },
+          {
+            "$ref": "#/components/schemas/MessageResponse"
+          },
           {
             "type": "object",
             "properties": {
-              "comment": { "$ref": "#/components/schemas/Comment" }
+              "comment": {
+                "$ref": "#/components/schemas/Comment"
+              }
             },
-            "required": ["comment"]
+            "required": [
+              "comment"
+            ]
           }
         ]
       }
@@ -199,7 +290,9 @@
   "paths": {
     "/auth/register": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Register a new user",
         "requestBody": {
           "required": true,
@@ -207,11 +300,22 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["fullName", "email", "password"],
+                "required": [
+                  "fullName",
+                  "email",
+                  "password"
+                ],
                 "properties": {
-                  "fullName": { "type": "string" },
-                  "email": { "type": "string" },
-                  "password": { "type": "string", "format": "password" }
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  }
                 }
               }
             }
@@ -222,7 +326,9 @@
             "description": "User registered successfully",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/RegisterResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterResponse"
+                }
               }
             }
           },
@@ -230,7 +336,9 @@
             "description": "Email already registered",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -239,7 +347,9 @@
     },
     "/auth/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Log in a user",
         "requestBody": {
           "required": true,
@@ -247,10 +357,18 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["email", "password"],
+                "required": [
+                  "email",
+                  "password"
+                ],
                 "properties": {
-                  "email": { "type": "string" },
-                  "password": { "type": "string", "format": "password" }
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  }
                 }
               }
             }
@@ -261,7 +379,9 @@
             "description": "Login successful",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/LoginResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
               }
             }
           },
@@ -269,7 +389,9 @@
             "description": "Invalid credentials",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -278,14 +400,18 @@
     },
     "/auth/refreshToken": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Refresh access token",
         "responses": {
           "200": {
             "description": "Token refreshed",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/RefreshTokenResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshTokenResponse"
+                }
               }
             }
           },
@@ -293,7 +419,9 @@
             "description": "Invalid or expired refresh token",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -302,15 +430,130 @@
     },
     "/auth/logout": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Logout current user",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Logout successful",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/MessageResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Forgot password - send reset link",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset link sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/reset-password/{resetToken}": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Reset password using token",
+        "parameters": [
+          {
+            "name": "resetToken",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "newPassword"
+                ],
+                "properties": {
+                  "newPassword": {
+                    "type": "string",
+                    "format": "password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or expired token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -319,15 +562,23 @@
     },
     "/users/{id}": {
       "put": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Update user by ID",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "requestBody": {
@@ -337,10 +588,19 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "fullName": { "type": "string" },
-                  "email": { "type": "string" },
-                  "password": { "type": "string", "format": "password" },
-                  "isAdmin": { "type": "boolean" }
+                  "fullName": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  },
+                  "isAdmin": {
+                    "type": "boolean"
+                  }
                 }
               }
             }
@@ -351,7 +611,9 @@
             "description": "User updated successfully",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/User" }
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
               }
             }
           },
@@ -359,22 +621,32 @@
             "description": "User not found",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
         }
       },
       "delete": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Delete user by ID",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -382,7 +654,9 @@
             "description": "User deleted successfully",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/MessageResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
               }
             }
           },
@@ -390,7 +664,9 @@
             "description": "User not found",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -399,15 +675,23 @@
     },
     "/users/makeAdmin/{id}": {
       "put": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Toggle admin status",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": { "type": "integer" }
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -415,7 +699,9 @@
             "description": "Admin status toggled",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/MessageResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
               }
             }
           },
@@ -423,7 +709,9 @@
             "description": "User not found",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
@@ -432,15 +720,23 @@
     },
     "/categories": {
       "get": {
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "summary": "Get all categories",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Categories retrieved",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CategoryListResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryListResponse"
+                }
               }
             }
           },
@@ -448,26 +744,40 @@
             "description": "Server error",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
               }
             }
           }
         }
       },
       "post": {
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "summary": "Create a new category",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name"],
+                "required": [
+                  "name"
+                ],
                 "properties": {
-                  "name": { "type": "string" },
-                  "description": { "type": "string" }
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -478,20 +788,30 @@
             "description": "Category created",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CategoryResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryResponse"
+                }
               }
             }
           },
           "400": {
             "description": "Validation error",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           },
           "409": {
             "description": "Category already exists",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
@@ -499,35 +819,67 @@
     },
     "/categories/{id}": {
       "get": {
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "summary": "Get category by ID",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "Category retrieved",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CategoryResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryResponse"
+                }
               }
             }
           },
           "404": {
             "description": "Category not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
       },
       "put": {
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "summary": "Update category by ID",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -535,7 +887,14 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": { "name": { "type": "string" }, "description": { "type": "string" } }
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
@@ -545,30 +904,53 @@
             "description": "Category updated",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/MessageResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
               }
             }
           },
           "400": {
             "description": "Validation error",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           },
           "404": {
             "description": "Category not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
       },
       "delete": {
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "summary": "Delete category by ID",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
           "200": { "description": "Category deleted", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MessageResponse" } } } },
@@ -578,19 +960,27 @@
     },
     "/products": {
       "get": {
-        "tags": ["Product"],
+        "tags": [
+          "Product"
+        ],
         "summary": "Get all products",
         "responses": {
           "200": {
             "description": "Products retrieved",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ProductListResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductListResponse"
+                }
+              }
             }
           }
         }
       },
       "post": {
-        "tags": ["Product"],
+        "tags": [
+          "Product"
+        ],
         "summary": "Create a new product",
         "requestBody": {
           "required": true,
@@ -598,10 +988,17 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["name", "price"],
+                "required": [
+                  "name",
+                  "price"
+                ],
                 "properties": {
-                  "name": { "type": "string" },
-                  "price": { "type": "number" }
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
                 }
               }
             }
@@ -611,13 +1008,21 @@
           "201": {
             "description": "Product created",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ProductResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponse"
+                }
+              }
             }
           },
           "409": {
             "description": "Product already exists",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
@@ -625,31 +1030,57 @@
     },
     "/products/{id}": {
       "get": {
-        "tags": ["Product"],
+        "tags": [
+          "Product"
+        ],
         "summary": "Get product by ID",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "Product retrieved",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ProductResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponse"
+                }
+              }
             }
           },
           "404": {
             "description": "Product not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
       },
       "put": {
-        "tags": ["Product"],
+        "tags": [
+          "Product"
+        ],
         "summary": "Update product by ID",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -658,8 +1089,12 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": { "type": "string" },
-                  "price": { "type": "number" }
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  }
                 }
               }
             }
@@ -669,22 +1104,39 @@
           "200": {
             "description": "Product updated",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ProductResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductResponse"
+                }
+              }
             }
           },
           "404": {
             "description": "Product not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
       },
       "delete": {
-        "tags": ["Product"],
+        "tags": [
+          "Product"
+        ],
         "summary": "Delete product by ID",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
           "204": {
@@ -693,7 +1145,11 @@
           "404": {
             "description": "Product not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
@@ -701,7 +1157,9 @@
     },
     "/comments": {
       "post": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "summary": "Create a new comment",
         "requestBody": {
           "required": true,
@@ -709,11 +1167,21 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["text", "username", "productId"],
+                "required": [
+                  "text",
+                  "username",
+                  "productId"
+                ],
                 "properties": {
-                  "text": { "type": "string" },
-                  "username": { "type": "string" },
-                  "productId": { "type": "integer" }
+                  "text": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "productId": {
+                    "type": "integer"
+                  }
                 }
               }
             }
@@ -723,13 +1191,21 @@
           "201": {
             "description": "Comment created",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/CommentResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentResponse"
+                }
+              }
             }
           },
           "404": {
             "description": "Product not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
@@ -737,17 +1213,28 @@
     },
     "/comments/product/{productId}": {
       "get": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "summary": "Get comments by product ID",
         "parameters": [
-          { "name": "productId", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "Comments retrieved",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CommentListResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/CommentListResponse"
+                }
               }
             }
           }
@@ -756,31 +1243,57 @@
     },
     "/comments/{id}": {
       "get": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "summary": "Get comment by ID",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "Comment retrieved",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/CommentResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentResponse"
+                }
+              }
             }
           },
           "404": {
             "description": "Comment not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
       },
       "put": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "summary": "Update comment by ID",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -789,8 +1302,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "text": { "type": "string" },
-                  "date": { "type": "string", "format": "date-time" }
+                  "text": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
                 }
               }
             }
@@ -800,29 +1318,52 @@
           "200": {
             "description": "Comment updated",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/MessageResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
             }
           },
           "404": {
             "description": "Comment not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }
       },
       "delete": {
-        "tags": ["Comment"],
+        "tags": [
+          "Comment"
+        ],
         "summary": "Delete comment by ID",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
         ],
         "responses": {
-          "204": { "description": "No content" },
+          "204": {
+            "description": "No content"
+          },
           "404": {
             "description": "Comment not found",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
             }
           }
         }

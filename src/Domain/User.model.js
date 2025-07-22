@@ -1,6 +1,5 @@
-// models/User.model.js
 const jwt = require("jsonwebtoken");
-const config = require("../Config/index"); // config dosyanızın doğru yolunu kontrol edin
+const config = require("../Infrastructure/Config/index");
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
@@ -24,6 +23,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      //Reset token
+      resetPasswordToken: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      resetPasswordExpire: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
     },
     {
       tableName: "users",
@@ -31,12 +39,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Statik metotlar
-  User.createAuthToken = function (user) {
-    return jwt.sign({ id: user.id, isAdmin: user.isAdmin }, config.jwt.secret, {
-      expiresIn: config.jwt.expiresIn,
-    });
-  };
+  // Token üretme (JWT)
+  // User.createAuthToken = function (user) {
+  //   return jwt.sign({ id: user.id, isAdmin: user.isAdmin }, config.jwt.secret, {
+  //     expiresIn: config.jwt.expiresIn,
+  //   });
+  // };
 
   return User;
 };

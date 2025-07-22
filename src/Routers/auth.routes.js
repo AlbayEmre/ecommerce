@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { protect } = require("../middlewares/auth"); // Auth middleware
-const isAdmin = require("../middlewares/isAdmin"); // Opsiyonel admin kontrolü
+const { protect } = require("../Middlewares/AuthMiddlewares/auth"); // Auth middleware
 const authController = require("../Controller/auth.controller");
 // @route   POST /api/auth/register
 // @desc    Register new user
@@ -26,7 +25,14 @@ router.post("/logout", protect, authController.logout);
 // @access  Private
 router.put("/make-admin/:id", protect, authController.toggleAdminStatus);
 
-//
-// router.delete("/delete/:id", protect, authController.deleteUser);
+// @route   POST /api/auth/forgot-password
+// @desc    Send password reset link
+// @access  Public
+router.post("/forgot-password", authController.forgotPassword);
+
+// @route   POST /api/auth/reset-password/:resetToken
+// @desc    Reset password with token
+// @access  Public
+router.post("/reset-password/:resetToken", authController.resetPassword);
 
 module.exports = router;

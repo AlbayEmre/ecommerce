@@ -59,3 +59,26 @@ exports.toggleAdminStatus = catchAsync(async (req, res) => {
 
   res.status(result.statusCode).json(result);
 });
+
+/**
+ * @desc    Forgot password - send reset token via email
+ * @route   POST /api/auth/forgot-password
+ * @access  Public
+ */
+exports.forgotPassword = catchAsync(async (req, res) => {
+  const { email } = req.body;
+  const result = await authService.forgotPassword(email);
+  res.status(result.statusCode).json(result);
+});
+
+/**
+ * @desc    Reset password using token
+ * @route   POST /api/auth/reset-password/:resetToken
+ * @access  Public
+ */
+exports.resetPassword = catchAsync(async (req, res) => {
+  const { resetToken } = req.params;
+  const { newPassword } = req.body;
+  const result = await authService.resetPassword(resetToken, newPassword);
+  res.status(result.statusCode).json(result);
+});

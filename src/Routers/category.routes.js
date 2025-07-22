@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const CategoryController = require("../Controller/categories.controller");
-const { protect } = require("../middlewares/auth");
-const isAdmin = require("../middlewares/isAdmin"); // Eğer sadece admin işlem yapacaksa bu middleware kullanılabilir
+const { protect } = require("../Middlewares/AuthMiddlewares/auth");
 
 /**
  * @route   GET /api/categories
